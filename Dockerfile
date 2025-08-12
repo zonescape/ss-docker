@@ -3,7 +3,7 @@ FROM rust:1.89.0-slim-trixie AS builder
 ARG TARGETARCH
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -yq musl-dev
+    DEBIAN_FRONTEND=noninteractive apt-get install -yq musl-dev musl-tools
 
 WORKDIR /root/shadowsocks-rust
 
