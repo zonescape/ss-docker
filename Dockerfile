@@ -23,7 +23,6 @@ RUN case "$TARGETARCH" in \
         exit 1 \
     ;; \
     esac \
-    && rustup override set stable \
     && rustup target add "$RUST_TARGET" \
     && cargo build --target "$RUST_TARGET" --release --features "full" \
     && mv target/$RUST_TARGET/release/ss* target/release/
