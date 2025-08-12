@@ -1,8 +1,9 @@
-FROM rust:alpine3.20 AS builder
+FROM rust:1.89.0-slim-trixie AS builder
 
 ARG TARGETARCH
 
-RUN apk add --no-cache musl-dev
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -yq musl-dev
 
 WORKDIR /root/shadowsocks-rust
 
